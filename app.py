@@ -4,18 +4,23 @@
 from flask import Flask, render_template, request, Response, jsonify, redirect, abort, current_app
 from functools import wraps
 from flask_compress import Compress
-import urllib3
 import json
 import os
-import traceback
-import flask_login as flask_login # only needed to support login accounts
 from flask_cors import CORS
 
-urllib3.disable_warnings()
 
+# create a flask app, (don't change __name__)
 app = Flask(__name__)
+
+# use gzip transparently for everything
 Compress(app)
+
+# allow cross site origin for REST APis.
 CORS(app)
+
+#
+# Internal helper method to handle utf-8 issues for JSON REST apis.
+#
 
 def mk_json_response(results={}, error_message=None):
     j = {
