@@ -42,5 +42,15 @@ Web Page: http://localhost:5000/ (http://localhost:5000/index.html)
 
 Once deployed the url will become: http://<your app name>.herokuapp.com/api/hello
 
+```
+git push heroku master
+```
+
+or if you're working on a remote branch
+
+```
+git push heroku <branch>:master
+```
+
 ![screenshot](https://cloud.githubusercontent.com/assets/5496117/18763190/100f359a-80c1-11e6-9635-fd39f9ec68dc.png)
 
